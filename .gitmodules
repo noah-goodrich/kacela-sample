@@ -7,3 +7,6 @@
 [submodule "modules/formo"]
 	path = modules/formo
 	url = git@github.com:bmidget/kohana-formo.git
+[submodule "modules/kacela"]
+	path = modules/kacela
+	url = git@github.com:gabriel1836/Kacela.git
