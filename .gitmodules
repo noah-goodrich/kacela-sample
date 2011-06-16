@@ -1,0 +1,9 @@
+[submodule "system"]
+	path = system
+	url = git://github.com/kohana/core.git
+[submodule "modules/cache"]
+	path = modules/cache
+	url = https://github.com/kohana/cache.git
+[submodule "modules/formo"]
+	path = modules/formo
+	url = git@github.com:bmidget/kohana-formo.git
