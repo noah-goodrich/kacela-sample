@@ -17,8 +17,8 @@ return array
 			'dbtype' => 'mysql',
 			'schema' => 'gacela',
 			'host' => 'localhost',
-			'user' => 'root',
-			'password' => ''
+			'user' => 'kacela',
+			'password' => 'kacela'
 		)
 	),
 	'cache' => false
