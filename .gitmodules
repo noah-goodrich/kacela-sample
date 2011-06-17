@@ -10,3 +10,6 @@
 [submodule "modules/kacela"]
 	path = modules/kacela
 	url = git@github.com:gabriel1836/kohana-kacela.git
+[submodule "modules/userguide"]
+	path = modules/userguide
+	url = https://github.com/kohana/userguide.git

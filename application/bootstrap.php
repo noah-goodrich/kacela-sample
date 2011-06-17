@@ -100,6 +100,7 @@ Kohana::modules(array(
 	'kacela'        => MODPATH.'kacela',
 	'cache'         => MODPATH.'cache',
 	'formo'         => MODPATH.'formo',
+	'userguide'     => MODPATH.'userguide',
 	// 'auth'       => MODPATH.'auth',       // Basic authentication
 	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
