@@ -8,9 +8,9 @@
 
 namespace App\Model;
 
-use Kacela\Model as M;
+use App\Kacela as K;
 
-class House extends M\Model
+class House extends K\Model
 {
 
 }

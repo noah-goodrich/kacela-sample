@@ -12,12 +12,31 @@ class Controller_Crud extends Controller
 {
 	public function action_index()
 	{
-		$houses = kacela::find_all('house');
+		$wizards = Kacela::find_all('wizard');
 
-		foreach($houses as $house)
+		foreach($wizards as $wizard)
 		{
-			echo $house->houseName.'<br/>';
+			echo $wizard->lname.' <a href="/crud/edit/'.$wizard->wizardId.'">Edit</a><br/>';
 		}
+	}
+	
+	public function action_edit($id)
+	{
+		$wizard = Kacela::find('wizard', $id);
+
+		$form = $wizard->get_form('wizard')
+			->add('save', 'submit');
+
+		if ($form->load($_POST)->validate(true))
+		{
+			$values = $form->as_array('value');
+	
+			echo ($wizard->save($wizard->filter_values($values)))
+				? '<p>Wizard saved</p>'
+				: '<p>Wizard save error</p>';
+		}
+
+		$this->response->body($form->render());
 	}
 
 }

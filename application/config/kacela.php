@@ -16,7 +16,7 @@ return array
 			'type' => 'database',
 			'dbtype' => 'mysql',
 			'schema' => 'kacela',
-			'host' => 'localhost',
+			'host' => '127.0.0.1',
 			'user' => 'kacela',
 			'password' => 'kacela'
 		)
