@@ -121,9 +121,9 @@ CREATE TABLE enrollments (
 ) ENGINE = Innodb;
 
 INSERT INTO enrollments
-SELECT c.course_id, s.wizard_id
+SELECT c.id, s.id
 FROM courses c, students s
-WHERE course_id IN (2, 3, 4, 7, 9);
+WHERE c.id IN (2, 3, 4, 7, 9);
 
 INSERT INTO enrollments VALUES
 (10, 1),
