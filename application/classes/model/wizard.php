@@ -1,30 +1,24 @@
 <?php
-/**
- * @author noahg
- * @date 6/20/11
+/** 
+ * @author noah
+ * @date 4/23/11
  * @brief
- *
- */
+ * 
+*/
 
 namespace App\Model;
 
-use App\Kacela as K;
-
-class Wizard extends K\Model
+class Wizard extends Model
 {
 
-	public function get_form($name = NULL)
+	protected function _get_full_name()
 	{
-		$form = parent::get_form($name);
-
-		$form->fname->set('label', 'first name');
-		$form->lname->set('label', 'last name');
-		$form->locationName->set('label', 'location name');
-		$form->addressId->set('render', false);
-
-		$form->order('locationName', 'after', 'role');
-
-		return $form;
+		return $this->fname.' '.$this->lname;
 	}
 
+	protected function _set_full_name($value)
+	{
+		$this->fname = trim(substr($value, 0, strpos($value, ' ')));
+		$this->lname = trim(substr($value, strpos($value, ' ')));
+	}
 }

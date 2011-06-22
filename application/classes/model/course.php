@@ -6,10 +6,9 @@
  * 
 */
 
-namespace App\Mapper;
+namespace App\Model;
 
-class House extends Mapper
+class Course extends Model
 {
-
 
 }

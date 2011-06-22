@@ -14,9 +14,11 @@ class Controller_Crud extends Controller
 	{
 		$wizards = Kacela::find_all('wizard');
 
+		//exit(\Debug::vars(Kacela::load('wizard')->debug()));
+
 		foreach($wizards as $wizard)
 		{
-			echo $wizard->lname.' <a href="/crud/edit/'.$wizard->wizardId.'">Edit</a><br/>';
+			echo $wizard->lname.' <a href="/crud/edit/'.$wizard->id.'">Edit</a><br/>';
 		}
 	}
 	

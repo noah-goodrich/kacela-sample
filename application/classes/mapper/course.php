@@ -8,8 +8,7 @@
 
 namespace App\Mapper;
 
-class House extends Mapper
+class Course extends Mapper
 {
-
 
 }

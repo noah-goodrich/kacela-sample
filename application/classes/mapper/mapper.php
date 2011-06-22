@@ -1,16 +1,16 @@
 <?php
 /** 
  * @author noahg
- * @date 6/20/11
+ * @date 6/22/11
  * @brief
  * 
  */
 
 namespace App\Mapper;
 
-use Kacela\Mapper as M;
+use Kacela\Mapper as K;
 
-class Address extends M\Mapper
+class Mapper extends K\Mapper
 {
 
 }
