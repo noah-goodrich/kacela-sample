@@ -14,12 +14,7 @@ class Controller_Inheritance_Concrete extends Controller
 	{
 		$students = Kacela::find_all('student');
 	
-		//Kacela::load('student')->debug(false);
-
-		foreach($students as $st)
-		{
-			echo $st->id.' '.get_class($st).'<br/>';
-		}
+		$this->response->body($view);
 	}
 
 }
