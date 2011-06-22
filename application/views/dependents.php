@@ -8,6 +8,10 @@
  defined('SYSPATH') OR die('No direct access allowed.');
  ?>
 
+<h1>Dependent Relationships</h1>
+
+<a href="/dependents/form/">Add</a>
+
 <table>
 	<thead>
 	<tr>
