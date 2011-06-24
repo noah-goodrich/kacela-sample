@@ -23,13 +23,20 @@ class Controller_Dependents extends Controller
 
 	public function action_form($id = null)
 	{
-		$form = kacela::find('wizard', $id)->get_form();
+		$model = kacela::find('wizard', $id);
+
+		$form = $model->get_form();
 
 		$form->add('submit', 'submit');
 
 		$this->response->body($form->render());
 
-		if(!$form->validate())
+		if(!$form->load()->validate(true))
+		{
+			return;
+		}
+		
+		if(!$model->save($form))
 		{
 			return;
 		}
