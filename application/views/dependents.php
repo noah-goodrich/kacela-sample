@@ -28,7 +28,7 @@
 		echo	 '<tr>
 				<td>' . $wiz->full_name . '</td>
 				<td>' . get_class($wiz) . '</td>
-				<td>' . $wiz->name . '</td>
+				<td>' . $wiz->location . '</td>
 				<td>
 					<a href="/dependents/form/' . $wiz->id . '">Edit</a>&nbsp;
 					<a href="/dependents/delete/' . $wiz->id . '">Delete</a>

@@ -49,9 +49,9 @@ class Model extends K\Model
 		}
 	}
 
-	public function _formo_add_fields(\Formo_Container $form)
+	protected function _formo_add_fields(\Formo_Container $form)
 	{
-		foreach ($this->_mapper->getFields() as $field => $data)
+		foreach ($this->_fields as $field => $data)
 		{
 			switch ($data->type)
 			{
@@ -70,7 +70,7 @@ class Model extends K\Model
 		}
 	}
 
-	public function get_form($name = NULL)
+	public function get_form($name = null)
 	{
 		$form = \Formo::form($name);
 
@@ -85,11 +85,21 @@ class Model extends K\Model
 		$values = array();
 		foreach ($array as $field => $value)
 		{
-			if (isset($this->$field)) {
+			if (property_exists($this->_data, $field) || method_exists($this, '_set_'.$field)) {
 				$values[$field] = $value;
 			}
 		}
 
 		return $values;
+	}
+
+	public function save($data = null)
+	{
+		if($data instanceof \Formo_Form)
+		{
+			$data = $this->filter_values($data->as_array('value'));
+		}
+		
+		return parent::save($data);
 	}
 }

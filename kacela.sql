@@ -6,7 +6,7 @@ USE kacela;
 
 CREATE TABLE addresses (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL
+    `location` VARCHAR(255) NOT NULL
 ) ENGINE = Innodb;
 
 INSERT INTO addresses VALUES

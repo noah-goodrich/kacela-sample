@@ -10,28 +10,42 @@ defined('SYSPATH') OR die('No direct access allowed.');
 
 class Controller_Dependents extends Controller
 {
+
 	public function action_index()
 	{
 		$models = kacela::find_all('wizard');
 
-
-
-		$this->response->body(View::factory('dependents')->set('models', $models));
-
+		$this->response->body
+		(
+			View::factory('dependents')
+				->set('models', $models)
+		);
 	}
 
-	public function action_form()
+	public function action_form($id = null)
 	{
-		$form = kacela::find('wizard')->get_form();
+		$model = kacela::find('wizard', $id);
 
-		$form->remove(array('id', 'address_id'));
+		$form = $model->get_form();
 
-		$this->response->body($form->render());
+		$form->add('submit', 'submit');
 
-		if(!$form->validate())
+		if(!$form->load($_POST)->validate(true))
 		{
+			$this->response->body
+			(
+				View::factory('dependents/form')->set('form', $form)
+			);
 			return;
 		}
-
+		
+		if(!$model->save($form))
+		{
+			$this->response->body
+			(
+				View::factory('dependents/form')->set('form', $form)
+			);
+			return;
+		}
 	}
 }
