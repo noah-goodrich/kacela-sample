@@ -8,18 +8,17 @@
 
 defined('SYSPATH') OR die('No direct access allowed.');
 
-class Controller_Dependents extends Controller
+class Controller_Dependents extends Controller_Site
 {
 
 	public function action_index()
 	{
 		$models = kacela::find_all('wizard');
 
-		$this->response->body
-		(
-			View::factory('dependents')
-				->set('models', $models)
-		);
+		$this->template->content = View::factory('dependents/index')
+										->set('models', $models);
+
+		$this->title = 'Dependent Relationship Example';
 	}
 
 	public function action_form($id = null)
@@ -47,5 +46,7 @@ class Controller_Dependents extends Controller
 			);
 			return;
 		}
+
+		
 	}
 }
