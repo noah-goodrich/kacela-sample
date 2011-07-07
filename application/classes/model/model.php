@@ -57,13 +57,15 @@ class Model extends K\Model
 			{
 				case 'enum':
 					$values = $data->values;
+
 					$form->add_group($field, 'select', array_combine($data->values, $data->values), $this->$field);
 					break;
 				default:
 					$form->add($field, 'input', $this->$field);
 			}
 
-			if ($data->primary === TRUE) {
+			if ($data->primary === TRUE)
+			{
 				$form->$field->set('editable', FALSE);
 			}
 

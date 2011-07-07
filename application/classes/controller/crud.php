@@ -8,37 +8,49 @@
 
 defined('SYSPATH') OR die('No direct access allowed.');
 
-class Controller_Crud extends Controller
+class Controller_Crud extends Controller_Site
 {
 	public function action_index()
 	{
-		$wizards = Kacela::find_all('wizard');
+		$this->title = "Create, Read, Update, Delete Example";
 
-		//exit(\Debug::vars(Kacela::load('wizard')->debug()));
+		$houses = kacela::find_all('house');
 
-		foreach($wizards as $wizard)
-		{
-			echo $wizard->lname.' <a href="/crud/edit/'.$wizard->id.'">Edit</a><br/>';
-		}
+		$this->template->content = View::factory('crud/index')
+										->set('houses', $houses);
 	}
 	
-	public function action_edit($id)
+	public function action_form($id = null)
 	{
-		$wizard = Kacela::find('wizard', $id);
+		$this->title = "Basic CRUD Form Example";
 
-		$form = $wizard->get_form('wizard')
-			->add('save', 'submit');
+		$house = kacela::find('house', $id);
 
-		if ($form->load($_POST)->validate(true))
+		$form = $house->get_form()
+					->remove(array('id'))
+					->add('Save', 'submit');
+
+		$this->template->content = $form->render();
+
+		if(!$form->load($_POST)->validate(true))
 		{
-			$values = $form->as_array('value');
-	
-			echo ($wizard->save($wizard->filter_values($values)))
-				? '<p>Wizard saved</p>'
-				: '<p>Wizard save error</p>';
+			return;
 		}
 
-		$this->response->body($form->render());
+		if(!$house->save($form))
+		{
+			return;
+		}
+
+		$this->request->redirect('/crud');
 	}
 
+	public function action_delete($id)
+	{
+		$house = kacela::find('house', $id);
+
+		$house->delete();
+
+		$this->request->redirect('/crud');
+	}
 }

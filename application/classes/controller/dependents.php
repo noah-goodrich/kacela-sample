@@ -29,24 +29,27 @@ class Controller_Dependents extends Controller_Site
 
 		$form->add('submit', 'submit');
 
+		$this->template->content = View::factory('dependents/form')->set('form', $form);
+
 		if(!$form->load($_POST)->validate(true))
 		{
-			$this->response->body
-			(
-				View::factory('dependents/form')->set('form', $form)
-			);
 			return;
 		}
 		
 		if(!$model->save($form))
 		{
-			$this->response->body
-			(
-				View::factory('dependents/form')->set('form', $form)
-			);
 			return;
 		}
-
 		
+		$this->request->redirect('/dependents');
+	}
+
+	public function action_delete($id)
+	{
+		$model = kacela::find('wizard', $id);
+
+		$model->delete();
+
+		$this->request->redirect('/dependents');
 	}
 }

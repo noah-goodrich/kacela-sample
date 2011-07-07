@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+}
+
+body #header {
+    background-color: tan;
+}
+
+body #header h1 {
+    color: brown;
+}
+
+body #navigation {
+    background-color: black;
+    list-style-type: none;
+    height: 60px;
+    margin: auto;
+}
+
+body #navigation li {
+    float: left;
+}
+
+body #navigation li a {
+    background-position: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: block;
+    line-height: 60px;
+    text-decoration: none;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 15px;
+    color: white;
+}
+
+body #navigation li a:hover {
+    color: tan;
+}
+
+body #content {
+    margin:  auto;
+    width: 960px;
+    padding: 20px 0px 25px 0px;
+}
+
+div.left {
+    float: left;
+}
+
+div.right {
+    float: left;
+}
+
+div.clear {
+    clear: both;
+}
