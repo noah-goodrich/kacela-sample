@@ -1,11 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Welcome extends Controller
+class Controller_Welcome extends Controller_Site
 {
 
 	public function action_index()
 	{
-		$this->response->body('Hello, Lendio');
+		$this->template->content = View::factory('welcome');
 	}
 
 }

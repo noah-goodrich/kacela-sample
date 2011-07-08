@@ -45,6 +45,10 @@ class Controller_Inheritance_Concrete extends Controller_Site
 
 	public function action_delete($id)
 	{
+		$student = kacela::find('student', $id);
+
+		$student->delete();
+		
 		$this->request->redirect('/inheritance_concrete');
 	}
 }
