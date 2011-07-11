@@ -15,17 +15,20 @@ class Student extends Wizard
 	{
 		$form = parent::get_form($name);
 
-		$form->remove(array('house_id'));
+		$form->remove(array('house_id', 'role'));
 
 		$houses = \kacela::find_all('house');
 
 		$options = array();
 		foreach($houses as $house)
 		{
-			$options[$house->id] = $house->name;
+			$options[$house->name] = $house->id;
 		}
+		
+		$form->add_group('house_id', 'select', $options, $this->house_id, array('required' => true))
+			->add('role', 'hidden', 'student');
 
-		//$form->add('house_id', 'select', $options, $this->house_id);
+		$form->is_da_member->set('required', false);
 
 		return $form;
 	}

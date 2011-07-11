@@ -7,9 +7,22 @@
 
 namespace App\Mapper;
 
-class Teacher extends Wizard {
+class Teacher extends Wizard
+{
 
 	protected $_resourceName = 'wizards';
+
+	public function find_all(\Gacela\Criteria $criteria = null)
+	{
+		if(is_null($criteria))
+		{
+			$criteria = \kacela::criteria();
+		}
+
+		$criteria->equals('role', 'teacher');
+
+		return parent::find_all($criteria);
+	}
 
 	public function findAllWithCourse(\Gacela\Criteria $criteria = null)
 	{

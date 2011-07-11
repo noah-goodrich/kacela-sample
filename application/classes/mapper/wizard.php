@@ -14,7 +14,7 @@ class Wizard extends Mapper {
 	
 	protected function _load(\stdClass $data)
 	{
-		if(!empty($data->role) && $data->role == 'student' && get_class($this) != 'App\Mapper\Student') {
+		if(!empty($data->role) AND $data->role == 'student' AND get_class($this) != 'App\Mapper\Student') {
 
 			// Because students load from their mapper that allows them to inherit
 			// from the wizards resource

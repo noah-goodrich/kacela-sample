@@ -28,15 +28,20 @@ class Controller_Inheritance_Concrete extends Controller_Site
 
 		$form = $student->get_form();
 
-		$this->template->content = $form->render();
+		$form->add('Save', 'submit');
 
-		if(!$form->load($_POST)->validate(true))
+		$this->template->content = View::factory('inheritance/concrete/form')
+									->set('form', $form);
+									
+		if(!$form->load()->validate())
 		{
 			return;
 		}
 
-		if(!$student->save())
+		if(!$student->save($form))
 		{
+			$form->error(join('<br/>', array_flip($student->errors)));
+
 			return;
 		}
 

@@ -56,9 +56,10 @@ class Model extends K\Model
 			switch ($data->type)
 			{
 				case 'enum':
-					$values = $data->values;
-
 					$form->add_group($field, 'select', array_combine($data->values, $data->values), $this->$field);
+					break;
+				case 'bool':
+					$form->add($field, 'bool', $this->$field == true ? 1 : 0);
 					break;
 				default:
 					$form->add($field, 'input', $this->$field);
@@ -70,6 +71,7 @@ class Model extends K\Model
 			}
 
 		}
+
 	}
 
 	public function get_form($name = null)
@@ -101,7 +103,7 @@ class Model extends K\Model
 		{
 			$data = $this->filter_values($data->as_array('value'));
 		}
-		
+
 		return parent::save($data);
 	}
 }
