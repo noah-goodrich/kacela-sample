@@ -24,11 +24,14 @@ class Wizard extends Model
 
 	public function get_form($name = null)
 	{
-		$form = parent::get_form($name);
-
-		$form->remove(array('address_id', 'id', 'fname', 'lname'));
-		$form->add('full_name', array('value' => $this->full_name, 'required' => true));
-		$form->order('full_name', 'role', 'location');
+		$form = parent::get_form($name)
+			->remove(array('address_id', 'id', 'fname', 'lname'))
+			->add('full_name', array('value' => $this->full_name, 'required' => true))
+			->order(array(
+				'full_name' => 0,
+				'role'      => 1,
+				'location'  => 2,
+			));
 
 		return $form;
 	}

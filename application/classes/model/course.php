@@ -21,14 +21,12 @@ class Course extends Model
 		(
 			array
 			(
-				'driver' => 'select',
-				'value' => $this->wizard_id,
+				'driver'  => 'select',
+				'value'   => $this->wizard_id,
 				'options' => $options,
-				'label' => 'Teacher'
+				'label'   => 'Teacher'
 			)
 		);
-
-		//$form->order('subject', );
 
 		return $form;
 	}
