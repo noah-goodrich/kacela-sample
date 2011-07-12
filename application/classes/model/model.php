@@ -59,7 +59,7 @@ class Model extends K\Model
 					$form->add_group($field, 'select', array_combine($data->values, $data->values), $this->$field);
 					break;
 				case 'bool':
-					$form->add($field, 'bool', $this->$field == true ? 1 : 0);
+					$form->add($field, 'bool', $this->$field);
 					break;
 				default:
 					$form->add($field, 'input', $this->$field);
