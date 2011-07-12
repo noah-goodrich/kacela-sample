@@ -20,7 +20,7 @@ class Student extends Wizard
 				'house_id' => array
 				(
 					'driver'   => 'select',
-					'options'  => Formo::select_list($houses->as_array('name', 'id')),
+					'options'  => \Formo::select_list($houses->as_array('name', 'id')),
 					'value'    => $this->house_id,
 					'required' => true,
 				),
