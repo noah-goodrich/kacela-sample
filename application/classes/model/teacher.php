@@ -15,8 +15,10 @@ class Teacher extends Wizard
 	{
 		$form = parent::get_form($name);
 
-		$form->remove(array('role'))
-			->add('role', 'hidden', 'teacher');
+		$form->role->set(array(
+			'driver' => 'hidden',
+			'value'  => 'teacher',
+		));
 
 		return $form;
 	}
