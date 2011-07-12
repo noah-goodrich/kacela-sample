@@ -14,6 +14,7 @@
 	<tr>
 		<th>Subject</th>
 		<th>Teacher</th>
+		<th>&nbsp;</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -21,6 +22,10 @@
 	<tr>
 		<td><?= $course->subject ?></td>
 		<td><?= $course->teacher->full_name ?></td>
+		<td>
+			<span><a href="/belongsto/form/<?= $course->id ?>">Edit</a></span>
+			<span><a href="/belongsto/delete/<?= $course->id ?>">Delete</a></span>
+		</td>
 	<tr/>
 <? endforeach ?>
 	</tbody>
