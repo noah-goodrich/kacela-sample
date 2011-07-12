@@ -15,7 +15,7 @@ class Course extends Model
 	{
 		$form = parent::get_form($name);
 
-		$options = \kacela::find_all('teacher')->as_array('id', 'full_name');
+		$options = \Formo::select_list(\kacela::find_all('teacher')->as_array('full_name', 'id'));
 		
 		$form->wizard_id->set
 		(
@@ -28,7 +28,7 @@ class Course extends Model
 			)
 		);
 
-		//$form->order('subject', );
+		$form->remove(array('id'));
 
 		return $form;
 	}
