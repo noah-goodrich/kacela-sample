@@ -14,19 +14,24 @@ class Wizard extends Mapper {
 	
 	protected function _load(\stdClass $data)
 	{
-		if(!empty($data->role) AND $data->role == 'student' AND get_class($this) != 'App\Mapper\Student') {
+		$class = get_class($this);
 
+		$role = isset($data->role) ? $data->role : '';
+
+		if($role == 'student' AND $class != 'App\Mapper\Student')
+		{
 			// Because students load from their mapper that allows them to inherit
 			// from the wizards resource
-			return \Gacela::instance()->loadMapper('student')->load($data);
+			return \kacela::find('student', $this->_primaryKey($this->_resource->getPrimaryKey(), $data));
 		}
 
 		if(!empty($data->role)) {
 			$model = ucfirst($data->role);
 		} else {
-			$model = 'Wizard';
+			$model = explode("\\", $class);
+			$model = end($model);
 		}
-
+		
 		$model = '\\App\\Model\\'.$model;
 
 		return new $model($data);

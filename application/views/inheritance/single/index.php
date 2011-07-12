@@ -14,6 +14,7 @@
 	<thead>
 	<tr>
 		<th>Full Name</th>
+		<th>Location</th>
 		<th>Courses</th>
 		<th>&nbsp;</th>
 	</tr>
@@ -22,7 +23,12 @@
 	<? foreach ($teachers as $teacher): ?>
 	<tr>
 		<td><?= $teacher->full_name ?></td>
-		<td></td>
+		<td><?= $teacher->location ?></td>
+		<td>
+		<? foreach($teacher->courses as $course): ?>
+			<span><?= $course->subject ?></span><br/>
+		<? endforeach; ?>
+		</td>
 		<td>
 			<span><a href="/inheritance_single/form/<?= $teacher->id ?>">Edit</a></span>
 			<span><a href="/inheritance_single/delete/<?= $teacher->id ?>">Delete</a></span>

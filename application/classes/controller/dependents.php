@@ -24,7 +24,7 @@ class Controller_Dependents extends Controller_Site
 	public function action_form($id = null)
 	{
 		$model = kacela::find('wizard', $id);
-
+		
 		$form = $model->get_form();
 
 		$form->add('submit', 'submit');
