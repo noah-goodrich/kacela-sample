@@ -59,3 +59,20 @@ div.right {
 div.clear {
     clear: both;
 }
+
+table {
+	width: 100%;
+}
+
+table th {
+	text-align: left;
+}
+
+table td {
+	padding: 2px 10px 2px 2px;
+	border-bottom: 1px solid #ddd;
+}
+
+table td:last-child {
+	padding-right: 2px;
+}

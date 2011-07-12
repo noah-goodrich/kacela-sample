@@ -36,10 +36,10 @@ class Controller_Criteria extends Controller_Site
 		$noE = \Gacela::instance()->loadMapper('teacher')->findAllWithCourse($criteria);
 
 		$this->template->content = View::factory('criteria')
-										->set('noAddresses', $noAddresses)
-										->set('totalStudents', $totalStudents)
-										->set('withCourse', $withCourse)
-										->set('withoutCourse', $withoutCourse)
-										->set('noE', $noE);
+			->set('noAddresses', $noAddresses)
+			->set('totalStudents', $totalStudents)
+			->set('withCourse', $withCourse)
+			->set('withoutCourse', $withoutCourse)
+			->set('noE', $noE);
 	}
 }
