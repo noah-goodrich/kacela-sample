@@ -19,7 +19,7 @@ class Model extends K\Model
 			if ($field = \Arr::get($this->_mapper->getFields(), $alias)) {
 				$rules = array();
 
-				if ($field->null === FALSE) {
+				if ($field->null === FALSE AND $field->type != 'bool') {
 					// Add not_empty rule if it doesn't allow NULL
 					$rules[] = array('not_empty');
 				}
