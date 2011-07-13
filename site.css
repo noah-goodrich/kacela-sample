@@ -87,6 +87,10 @@ table td:last-child {
 	padding-right: 2px;
 }
 
+table tr:last-child td {
+	border: none;
+}
+
 form p.field {
 	margin: 1em 0;
 	clear: both;
@@ -108,8 +112,10 @@ form input.input {
 
 .error-message {
 	color: red;
+	font-size: 10px;
+	margin-left: 10px;
 }
 
-p input.input.error {
+p.error input.input {
 	border: 1px solid red;
 }
