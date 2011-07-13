@@ -17,7 +17,7 @@ class Controller_Belongsto extends Controller_Site
 		$courses = kacela::find_all('course');
 
 		$this->template->content = View::factory('belongsto/index')
-										->set('courses', $courses);
+			->set('courses', $courses);
 	}
 
 	public function action_form($id = null)
@@ -27,7 +27,7 @@ class Controller_Belongsto extends Controller_Site
 		$course = kacela::find('course', $id);
 
 		$form = $course->get_form()
-					->add('Save', 'submit');
+			->add('save', 'submit');
 
 		$this->template->content = View::factory('belongsto/form')
 										->set('form', $form);
