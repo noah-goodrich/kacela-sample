@@ -18,7 +18,7 @@ class Controller_Hasmany extends Controller_Site
 		$teachers = kacela::find_all('teacher');
 
 		$this->template->content = View::factory('hasmany/index')
-									->set('teachers', $teachers);
+			->set('teachers', $teachers);
 	}
 
 	public function action_form($id = null)

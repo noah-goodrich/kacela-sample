@@ -16,7 +16,7 @@ class Controller_Dependents extends Controller_Site
 		$models = kacela::find_all('wizard');
 
 		$this->template->content = View::factory('dependents/index')
-										->set('models', $models);
+			->set('models', $models);
 
 		$this->title = 'Dependent Relationship Example';
 	}
@@ -25,9 +25,8 @@ class Controller_Dependents extends Controller_Site
 	{
 		$model = kacela::find('wizard', $id);
 		
-		$form = $model->get_form();
-
-		$form->add('submit', 'submit');
+		$form = $model->get_form()
+			->add('save', 'submit');
 
 		$this->template->content = View::factory('dependents/form')->set('form', $form);
 

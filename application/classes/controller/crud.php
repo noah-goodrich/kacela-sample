@@ -27,8 +27,8 @@ class Controller_Crud extends Controller_Site
 		$house = kacela::find('house', $id);
 
 		$form = $house->get_form()
-					->remove(array('id'))
-					->add('Save', 'submit');
+			->remove(array('id'))
+			->add('save', 'submit');
 
 		$this->template->content = $form->render();
 

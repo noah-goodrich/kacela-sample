@@ -26,12 +26,11 @@ class Controller_Inheritance_Concrete extends Controller_Site
 
 		$student = kacela::find('student', $id);
 
-		$form = $student->get_form();
-
-		$form->add('Save', 'submit');
+		$form = $student->get_form()
+			->add('save', 'submit');
 
 		$this->template->content = View::factory('inheritance/concrete/form')
-									->set('form', $form);
+			->set('form', $form);
 									
 		if(!$form->load()->validate())
 		{

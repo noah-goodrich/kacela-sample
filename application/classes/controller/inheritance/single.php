@@ -25,9 +25,8 @@ class Controller_Inheritance_Single extends Controller_Site
 
 		$teacher = kacela::find('teacher', $id);
 
-		$form = $teacher->get_form();
-
-		$form->add('Save', 'submit');
+		$form = $teacher->get_form()
+			->add('save', 'submit');
 
 		$this->template->content = View::factory('inheritance/single/form')
 										->set('form', $form);
