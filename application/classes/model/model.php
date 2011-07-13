@@ -64,6 +64,8 @@ class Model extends K\Model
 				default:
 					$form->add($field, 'input', $this->$field);
 			}
+			
+			$form->$field->set('label', str_replace('_', ' ', $field));
 
 			if ($data->primary === TRUE)
 			{
