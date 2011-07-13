@@ -4,7 +4,17 @@
 }
 
 body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
 
+a {
+	color: #65a2fe;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 body #header {
@@ -75,4 +85,31 @@ table td {
 
 table td:last-child {
 	padding-right: 2px;
+}
+
+form p.field {
+	margin: 1em 0;
+	clear: both;
+}
+
+form span.label {
+	text-transform: capitalize;
+	float: left;
+	width: 100px;
+	display: block;
+	padding: 5px 0;
+}
+
+form input.input {
+	border: 1px solid #ddd;
+	padding: 5px;
+	width: 400px;
+}
+
+.error-message {
+	color: red;
+}
+
+p input.input.error {
+	border: 1px solid red;
 }
