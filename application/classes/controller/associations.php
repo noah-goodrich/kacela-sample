@@ -19,11 +19,11 @@ class Controller_Associations extends Controller_Site
 									->set('students', $students);
 	}
 
-	public function action_student($id)
+	public function action_student()
 	{
 		$this->title = 'Association Relationships Example';
 
-		$student = kacela::find('student', $id);
+		$student = kacela::find('student', $this->request->param('id'));
 		
 		$ids = $student->courses->as_array('id');
 

@@ -20,11 +20,11 @@ class Controller_Crud extends Controller_Site
 										->set('houses', $houses);
 	}
 	
-	public function action_form($id = null)
+	public function action_form()
 	{
 		$this->title = "Basic CRUD Form Example";
 
-		$house = kacela::find('house', $id);
+		$house = kacela::find('house', $this->request->param('id'));
 
 		$form = $house->get_form()
 			->remove(array('id'))
@@ -45,9 +45,9 @@ class Controller_Crud extends Controller_Site
 		$this->request->redirect('/crud');
 	}
 
-	public function action_delete($id)
+	public function action_delete()
 	{
-		$house = kacela::find('house', $id);
+		$house = kacela::find('house', $this->request->param('id'));
 
 		$house->delete();
 
