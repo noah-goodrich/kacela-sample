@@ -38,7 +38,7 @@ class Controller_Inheritance_Single extends Controller_Site
 
 		if (!$teacher->save($form))
 		{
-			$form->error(join('<br/>', array_flip($student->errors)));
+			$form->error(join('<br/>', array_flip($teacher->errors)));
 
 			return;
 		}

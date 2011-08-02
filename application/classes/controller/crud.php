@@ -32,13 +32,14 @@ class Controller_Crud extends Controller_Site
 
 		$this->template->content = $form->render();
 
-		if(!$form->load($_POST)->validate(true))
+		if(!$form->load()->validate())
 		{
 			return;
 		}
 
 		if(!$house->save($form))
 		{
+			exit(\Debug::vars($house->errors));
 			return;
 		}
 
