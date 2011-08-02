@@ -27,7 +27,7 @@
 		<li><a href="/inheritance_single">Single Table Inheritance</a></li>
 		<li><a href="/inheritance_concrete">Concrete Table Inheritance</a></li>
 		<li><a href="/dependents">Dependent Relationships</a></li>
-		<li><a href="/associations">Associations</a></li>
+		<!--<li><a href="/associations">Associations</a></li>-->
 		<li><a href="/criteria">Criteria vs Query</a></li>
 		<li><a href="/debug">Debugging</a></li>
 	</ul>
