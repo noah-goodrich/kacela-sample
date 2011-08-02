@@ -14,7 +14,7 @@ class Controller_Associations extends Controller_Site
 		$this->title = 'Association Relationships Example';
 
 		$students = kacela::find_all('student');
-
+		
 		$this->template->content = View::factory('associations/index')
 									->set('students', $students);
 	}

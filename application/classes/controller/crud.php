@@ -39,6 +39,7 @@ class Controller_Crud extends Controller_Site
 
 		if(!$house->save($form))
 		{
+			exit(\Debug::vars($house->errors));
 			return;
 		}
 

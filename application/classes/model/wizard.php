@@ -26,12 +26,7 @@ class Wizard extends Model
 	{
 		$form = parent::get_form($name)
 			->remove(array('address_id', 'id', 'fname', 'lname'))
-			->add('full_name', array('value' => $this->full_name, 'required' => true, 'label' => 'full name'))
-			->order(array(
-				'full_name' => 0,
-				'role'      => 1,
-				'location'  => 2,
-			));
+			->add('full_name', array('value' => $this->full_name, 'required' => true, 'label' => 'full name'));
 
 		return $form;
 	}
