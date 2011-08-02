@@ -21,10 +21,10 @@ class Controller_Dependents extends Controller_Site
 		$this->title = 'Dependent Relationship Example';
 	}
 
-	public function action_form($id = null)
+	public function action_form()
 	{
-		$model = kacela::find('wizard', $id);
-		
+		$model = kacela::find('wizard', $this->request->param('id', null));
+
 		$form = $model->get_form()
 			->add('save', 'submit');
 
