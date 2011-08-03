@@ -23,7 +23,7 @@
 	<tr>
 		<td><?= $course->subject ?></td>
 		<td>
-			<span><a href="/associations/remove/<?= $course->id ?>">Remove</a></span>
+			<span><a href="/associations/remove/<?= $student->id ?>/<?= $course->id ?>">Remove</a></span>
 		</td>
 	</tr>
 <? endforeach ?>

@@ -48,9 +48,10 @@ class Controller_Associations extends Controller_Site
 									->set('form', $form);
 	}
 
-	public function action_remove($student_id, $course_id)
+	public function action_remove()
 	{
-		$student = kacela::find('student', $student_id);
+		exit(\Debug::vars($this->request->param()));
+		$student = kacela::find('student', $this->request->param('student_id'));
 
 		$course = kacela::find('course', $course_id);
 
