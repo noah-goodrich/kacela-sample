@@ -14,7 +14,7 @@ class Controller_Associations extends Controller_Site
 		$this->title = 'Association Relationships Example';
 
 		$students = kacela::find_all('student');
-		
+
 		$this->template->content = View::factory('associations/index')
 									->set('students', $students);
 	}
@@ -36,6 +36,8 @@ class Controller_Associations extends Controller_Site
 					->add_group('course_id', 'select', Formo::select_list($new->as_array('subject', 'id')))
 					->add('Add', 'submit');
 
+		$form->view()->attr('action', '/associations/student/'.$this->request->param('id'));
+
 		if($form->load()->validate())
 		{
 			$course = kacela::find('course', $form->course_id->val());
@@ -50,13 +52,12 @@ class Controller_Associations extends Controller_Site
 
 	public function action_remove()
 	{
-		exit(\Debug::vars($this->request->param()));
-		$student = kacela::find('student', $this->request->param('student_id'));
+		$student = kacela::find('student', $this->request->param('id'));
 
-		$course = kacela::find('course', $course_id);
+		$course = kacela::find('course', $this->request->param('param'));
 
 		$student->remove($course);
 
-		$this->action_student($student_id);
+		$this->action_student($this->request->param('id'));
 	}
 }
