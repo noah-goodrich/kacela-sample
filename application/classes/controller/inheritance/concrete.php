@@ -15,7 +15,7 @@ class Controller_Inheritance_Concrete extends Controller_Site
 		$this->title = 'Concrete Inheritance Example';
 
 		$students = Kacela::find_all('student');
-
+		
 		$this->template->content = View::factory('inheritance/concrete/index')
 										->set('students', $students);
 	}

@@ -14,7 +14,7 @@ class Controller_Inheritance_Single extends Controller_Site
 		$this->title = 'Single Table Inheritance Example';
 
 		$teachers = \kacela::find_all('teacher');
-
+		
 		$this->template->content = View::factory('inheritance/single/index')
 				->set('teachers', $teachers);
 	}
