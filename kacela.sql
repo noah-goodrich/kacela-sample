@@ -32,7 +32,7 @@ CREATE TABLE wizards (
     lname VARCHAR(255) NOT NULL,
     role ENUM('teacher', 'student') NULL,
     address_id INT UNSIGNED NULL,
-    CONSTRAINT fk_address_wizard
+    CONSTRAINT `fk-address-wizard`
         FOREIGN KEY (address_id)
         REFERENCES addresses(id)
         ON DELETE SET NULL
@@ -64,11 +64,11 @@ CREATE TABLE students (
     id INT UNSIGNED NOT NULL PRIMARY KEY,
     house_id INT UNSIGNED NOT NULL,
     is_da_member BOOL NOT NULL DEFAULT 0,
-    CONSTRAINT fk_wizard_student
+    CONSTRAINT `fk-wizard-student`
         FOREIGN KEY (id)
         REFERENCES wizards(id)
         ON DELETE CASCADE,
-    CONSTRAINT fk_house_students
+    CONSTRAINT `fk-house-students`
         FOREIGN KEY (house_id)
         REFERENCES houses(id)
         ON DELETE RESTRICT
@@ -90,7 +90,7 @@ CREATE TABLE courses (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     wizard_id INT UNSIGNED NOT NULL,
     subject VARCHAR(255) NULL,
-    CONSTRAINT fk_teacher_courses
+    CONSTRAINT `fk-teacher-courses`
         FOREIGN KEY (wizard_id)
         REFERENCES wizards(id)
 ) ENGINE = Innodb;
@@ -110,11 +110,11 @@ CREATE TABLE enrollments (
     course_id INT UNSIGNED NOT NULL,
     wizard_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (course_id, wizard_id),
-    CONSTRAINT fk_course_students
+    CONSTRAINT `fk-course-students`
         FOREIGN KEY (course_id)
         REFERENCES courses(id)
         ON DELETE CASCADE,
-    CONSTRAINT fk_student_courses
+    CONSTRAINT `fk-student-courses`
         FOREIGN KEY (wizard_id)
         REFERENCES students(id)
         ON DELETE CASCADE
