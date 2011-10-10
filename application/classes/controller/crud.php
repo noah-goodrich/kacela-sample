@@ -27,11 +27,11 @@ class Controller_Crud extends Controller_Site
 		$house = kacela::find('house', $this->request->param('id'));
 
 		$form = $house->get_form()
-			->remove(array('id'))
 			->add('save', 'submit');
-
-		$this->template->content = $form->render();
-
+		
+		$this->template->content = View::factory('crud/form')
+										->set('form', $form);
+		
 		if(!$form->load()->validate())
 		{
 			return;
@@ -39,7 +39,7 @@ class Controller_Crud extends Controller_Site
 		
 		if(!$house->save($form))
 		{
-			exit(\Debug::vars($house->errors));
+			$form->error(join('<br/>', array_flip($teacher->errors)));
 			return;
 		}
 

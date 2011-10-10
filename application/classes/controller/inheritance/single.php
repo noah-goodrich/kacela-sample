@@ -19,11 +19,11 @@ class Controller_Inheritance_Single extends Controller_Site
 				->set('teachers', $teachers);
 	}
 
-	public function action_form($id = null)
+	public function action_form()
 	{
 		$this->title = 'Single Table Inheritance Form Example';
 
-		$teacher = kacela::find('teacher', $id);
+		$teacher = kacela::find('teacher', $this->request->param('id'));
 
 		$form = $teacher->get_form()
 			->add('save', 'submit');
@@ -39,7 +39,6 @@ class Controller_Inheritance_Single extends Controller_Site
 		if (!$teacher->save($form))
 		{
 			$form->error(join('<br/>', array_flip($teacher->errors)));
-
 			return;
 		}
 
