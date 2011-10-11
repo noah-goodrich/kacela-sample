@@ -10,7 +10,23 @@ namespace App\Mapper;
 
 class Wizard extends Mapper {
 
-	protected $_dependents = array('address');
+	protected $_dependents = array
+	(
+		'address' => array
+		(
+			'meta' => array
+			(
+				'keyTable' => 'wizards',
+				'refTable' => 'addresses',
+				'type' => 'belongsTo',
+				'keys' => array
+				(
+					'address_id' => 'id'
+				)
+			),
+			'resource' => 'addresses'
+		)
+	);
 	
 	protected function _load(\stdClass $data)
 	{

@@ -15,8 +15,19 @@ class Controller_Associations extends Controller_Site
 
 		$students = kacela::find_all('student');
 
+		$courses = kacela::find_all('course');
+		//exit(\Debug::vars(kacela::load('course')));
 		$this->template->content = View::factory('associations/index')
-									->set('students', $students);
+									->set('students', $students)
+									->set('courses', $courses);
+	}
+
+	public function action_course()
+	{
+		$course = kacela::find('course', $this->request->param('id'));
+
+		$this->template->content = View::factory('associations/course')
+									->set('course', $course);
 	}
 
 	public function action_student()

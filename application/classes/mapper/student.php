@@ -12,7 +12,7 @@ class Student extends Mapper {
 
 	protected $_dependents = array('address');
 
-	/*protected $_inherits = array(
+	protected $_inherits = array(
 		'wizard' => array(
 			'meta' => array(
 				'keyTable' => 'students',
@@ -22,5 +22,5 @@ class Student extends Mapper {
 			),
 			'resource' => 'wizards'
 		)
-	);*/
+	);
 }

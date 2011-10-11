@@ -20,11 +20,11 @@ class Controller_Inheritance_Concrete extends Controller_Site
 										->set('students', $students);
 	}
 
-	public function action_form($id = null)
+	public function action_form()
 	{
 		$this->title = 'Concrete Inheritance Form Example';
 
-		$student = kacela::find('student', $id);
+		$student = kacela::find('student', $this->request->param('id'));
 
 		$form = $student->get_form()
 			->add('save', 'submit');
