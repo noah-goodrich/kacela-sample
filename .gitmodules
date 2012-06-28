@@ -6,10 +6,10 @@
 	url = https://github.com/kohana/cache.git
 [submodule "modules/formo"]
 	path = modules/formo
-	url = git@github.com:bmidget/kohana-formo.git
+	url = git://github.com/bmidget/kohana-formo.git
 [submodule "modules/kacela"]
 	path = modules/kacela
-	url = git@github.com:gabriel1836/kohana-kacela.git
+	url = git://github.com/noah-goodrich/kohana-kacela.git
 [submodule "modules/userguide"]
 	path = modules/userguide
 	url = https://github.com/kohana/userguide.git
