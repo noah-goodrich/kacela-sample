@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author Noah Goodrich
  * @date 7/8/11
  * @brief
- * 
+ *
 */
 
 class Controller_Criteria extends Controller_Site
@@ -23,9 +23,9 @@ class Controller_Criteria extends Controller_Site
 		// Pull back all wizards who are students
 		$criteria2->equals('role', 'student');
 
-		$noAddresses = \Gacela::instance()->loadMapper('wizard')->findAll($criteria1);
-		$totalStudents = \Gacela::instance()->loadMapper('wizard')->findAll($criteria2);
-		
+		$noAddresses = \Gacela::instance()->loadMapper('wizard')->find_all($criteria1);
+		$totalStudents = \Gacela::instance()->loadMapper('wizard')->find_all($criteria2);
+
 		$withCourse = \Gacela::instance()->loadMapper('teacher')->findAllWithCourse();
 		$withoutCourse = \Gacela::instance()->loadMapper('teacher')->findAllWithoutCourse();
 

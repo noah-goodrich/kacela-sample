@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author Noah Goodrich
  * @date 7/13/11
  * @brief
- * 
+ *
 */
 
 class Controller_Associations extends Controller_Site
@@ -16,7 +16,7 @@ class Controller_Associations extends Controller_Site
 		$students = kacela::find_all('student');
 
 		$courses = kacela::find_all('course');
-		
+
 		$this->template->content = View::factory('associations/index')
 									->set('students', $students)
 									->set('courses', $courses);
@@ -35,13 +35,13 @@ class Controller_Associations extends Controller_Site
 		$this->title = 'Association Relationships Example';
 
 		$student = kacela::find('student', $this->request->param('id'));
-		
+
 		$ids = $student->courses->as_array('id');
 
-		$criteria = kacela::criteria()->notIn('id', $ids);
+		$criteria = kacela::criteria()->not_in('id', $ids);
 
 		$new = kacela::find_all('course', $criteria);
-		
+
 		$form = Formo::form()
 					->add('wizard_id', 'hidden', $student->id)
 					->add_group('course_id', 'select', Formo::select_list($new->as_array('subject', 'id')))

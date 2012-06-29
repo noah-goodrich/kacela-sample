@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author Noah Goodrich
  * @date 7/8/11
  * @brief
- * 
+ *
 */
 
 class Controller_Debug extends Controller_Site
@@ -12,10 +12,10 @@ class Controller_Debug extends Controller_Site
 	public function action_index()
 	{
 		$this->title = 'Debugging Information Example';
-		
+
 		$house_mapper = \Gacela::instance()->loadMapper('house');
 
-		$house_mapper->findAll();
+		$house_mapper->find_all();
 
 		$student_mapper = \Gacela::instance()->loadMapper('student');
 
