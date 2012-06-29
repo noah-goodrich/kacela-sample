@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 7/6/11
  * @brief
- * 
+ *
  */
 
 defined('SYSPATH') OR die('No direct access allowed.');
@@ -14,6 +14,8 @@ class Controller_Site extends Controller_Template {
 
 	public function before()
 	{
+		\Kohana::$profiling = true;
+
 		parent::before();
 
 		// Make $title available to all views

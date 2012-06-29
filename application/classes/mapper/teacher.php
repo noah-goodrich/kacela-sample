@@ -1,8 +1,8 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/30/11
- * 
+ *
 */
 
 namespace App\Mapper;
@@ -30,8 +30,8 @@ class Teacher extends Wizard
 					->from('wizards')
 					->where('role = :role', array(':role' => 'teacher'))
 					->where('EXISTS (SELECT * FROM courses WHERE courses.wizard_id = wizards.id)');
-		
-		return $this->_source()->query($this->_resource, $query);
+
+		return $this->_runQuery($query);
 	}
 
 	public function findAllWithoutCourse(\Gacela\Criteria $criteria = null)
@@ -46,6 +46,6 @@ class Teacher extends Wizard
 					->where('role = :role', array(':role' =>  'teacher'))
 					->where("NOT EXISTS ({$existsQuery[0]})");
 
-		return $this->_source()->query($this->_resource, $query);
+		return $this->_runQuery($query);
 	}
 }

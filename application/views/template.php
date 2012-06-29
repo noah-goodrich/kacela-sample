@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 7/6/11
  * @brief
- * 
+ *
  */
  defined('SYSPATH') OR die('No direct access allowed.');
  ?>
@@ -19,7 +19,7 @@
 		<h1><?= $title ?></h1>
 	</div>
 	<div class="clear"></div>
-		
+
 	<ul id="navigation">
 		<li><a href="/crud">CRUD</a></li>
 		<li><a href="/belongsto">Belongs To</a></li>
@@ -37,6 +37,8 @@
 		<?= $content ?>
 	</div>
 
+
+	<?php echo \Kohana::$profiling ? View::factory('profiler/stats') : '' ?>
 </body>
 
 </html>
