@@ -26,14 +26,14 @@ class Controller_Criteria extends Controller_Site
 		$noAddresses = \Gacela::instance()->loadMapper('wizard')->find_all($criteria1);
 		$totalStudents = \Gacela::instance()->loadMapper('wizard')->find_all($criteria2);
 
-		$withCourse = \Gacela::instance()->loadMapper('teacher')->findAllWithCourse();
-		$withoutCourse = \Gacela::instance()->loadMapper('teacher')->findAllWithoutCourse();
+		$withCourse = \Gacela::instance()->loadMapper('teacher')->find_all_with_course();
+		$withoutCourse = \Gacela::instance()->loadMapper('teacher')->find_all_without_course();
 
 		$criteria = new \Gacela\Criteria;
 
 		$criteria->notLike('lName', 'e');
 
-		$noE = \Gacela::instance()->loadMapper('teacher')->findAllWithCourse($criteria);
+		$noE = \Gacela::instance()->loadMapper('teacher')->find_all_with_course($criteria);
 
 		$this->template->content = View::factory('criteria')
 			->set('noAddresses', $noAddresses)
