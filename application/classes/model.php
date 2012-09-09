@@ -1,16 +1,12 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 6/22/11
  * @brief
- * 
+ *
  */
 
-namespace App\Model;
-
-use Kacela\Model as K;
-
-class Model extends K\Model
+class Model extends Kacela_Model
 {
 	protected function _formo_add_rules(\Formo_Container $form)
 	{
@@ -64,7 +60,7 @@ class Model extends K\Model
 				default:
 					$form->add($field, 'input', $this->$field);
 			}
-			
+
 			$form->$field->set('label', str_replace('_', ' ', $field));
 
 			if ($data->primary === TRUE)

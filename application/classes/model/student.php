@@ -6,9 +6,7 @@
  *
 */
 
-namespace App\Model;
-
-class Student extends Wizard
+class Model_Student extends Model_Wizard
 {
 
 	public function get_form($name = null)

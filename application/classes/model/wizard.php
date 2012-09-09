@@ -1,14 +1,12 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Model;
-
-class Wizard extends Model
+class Model_Wizard extends Model
 {
 	protected function _get_full_name()
 	{

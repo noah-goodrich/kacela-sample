@@ -1,14 +1,12 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Model;
-
-class Teacher extends Wizard
+class Model_Teacher extends Model_Wizard
 {
 
 	public function get_form($name = null)

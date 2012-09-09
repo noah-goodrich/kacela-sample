@@ -1,14 +1,12 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Mapper;
-
-class Wizard extends Mapper {
+class Mapper_Wizard extends Mapper {
 
 	protected $_dependents = array
 	(
@@ -27,28 +25,25 @@ class Wizard extends Mapper {
 			'resource' => 'addresses'
 		)
 	);
-	
+
 	protected function _load(\stdClass $data)
 	{
 		$class = get_class($this);
 
 		$role = isset($data->role) ? $data->role : '';
 
-		if($role == 'student' AND $class != 'App\Mapper\Student')
+		if($role == 'student' AND $class != 'Mapper_Student')
 		{
 			// Because students load from their mapper that allows them to inherit
 			// from the wizards resource
-			return \kacela::find('student', $this->_primaryKey($this->_resource->getPrimaryKey(), $data));
+			return Kacela::find('student', $this->_primaryKey($this->_resource->getPrimaryKey(), $data));
 		}
 
 		if(!empty($data->role)) {
-			$model = ucfirst($data->role);
+			$model = 'Model_'.ucfirst($data->role);
 		} else {
-			$model = explode("\\", $class);
-			$model = end($model);
+			$model = str_replace('Mapper', 'Model', $class);
 		}
-		
-		$model = '\\App\\Model\\'.$model;
 
 		return new $model($data);
 	}

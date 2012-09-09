@@ -13,8 +13,7 @@ return array
 	(
 		'db' => array
 		(
-			'type' => 'database',
-			'dbtype' => 'mysql',
+			'type' => 'mysql',
 			'schema' => 'kacela',
 			'host' => '127.0.0.1',
 			'user' => 'kacela',
@@ -22,12 +21,11 @@ return array
 		),
 		'employees' => array
 		(
-			'type' => 'database',
 			'schema' => 'employees',
 			'host' => 'localhost',
 			'user' => 'gacela',
 			'passwword' => 'gacela',
-			'dbtype' => 'mysql'
+			'type' => 'mysql'
 		)
 	)
 );
