@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 7/7/11
  * @brief
- * 
+ *
  */
 
 defined('SYSPATH') OR die('No direct access allowed.');
@@ -14,7 +14,7 @@ class Controller_Belongsto extends Controller_Site
 	{
 		$this->title = 'Belongs To Example';
 
-		$courses = kacela::find_all('course');
+		$courses = Kacela::find_all('course');
 
 		$this->template->content = View::factory('belongsto/index')
 			->set('courses', $courses);
@@ -23,7 +23,7 @@ class Controller_Belongsto extends Controller_Site
 	public function action_form($id = null)
 	{
 		$this->title = 'Belongs To Form Example';
-		
+
 		$course = kacela::find('course', $id);
 
 		$form = $course->get_form()
@@ -50,7 +50,7 @@ class Controller_Belongsto extends Controller_Site
 		$course = kacela::find('course', $id);
 
 		$course->delete();
-		
+
 		$this->request->redirect('/belongsto');
 	}
 }

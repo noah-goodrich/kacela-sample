@@ -6,7 +6,8 @@
  *
 */
 
-class Mapper_Wizard extends Mapper {
+class Mapper_Wizard extends Mapper
+{
 
 	protected $_dependents = array
 	(
@@ -45,6 +46,6 @@ class Mapper_Wizard extends Mapper {
 			$model = str_replace('Mapper', 'Model', $class);
 		}
 
-		return new $model($data);
+		return new $model($this->_kacela(), $this, $data);
 	}
 }

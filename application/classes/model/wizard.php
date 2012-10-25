@@ -20,9 +20,9 @@ class Model_Wizard extends Model
 		$this->lname = trim(substr($value, strpos($value, ' ')));
 	}
 
-	public function get_form($name = null)
+	public function get_form(array $fields = array())
 	{
-		$form = parent::get_form($name)
+		$form = parent::get_form($fields)
 			->remove(array('address_id', 'id', 'fname', 'lname'))
 			->add('full_name', array('value' => $this->full_name, 'required' => true, 'label' => 'full name'));
 

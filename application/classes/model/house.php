@@ -6,7 +6,7 @@
  *
 */
 
-class Model_House extends Model
+class Model_House extends Kacela_Model
 {
 
 }
