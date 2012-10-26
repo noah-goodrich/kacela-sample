@@ -10,41 +10,10 @@ class Controller_Test extends Controller_Site
 {
 	public function action_index()
 	{
-		$teachers = \Kacela::find_all('house');
+		$db = Kacela::instance()->get_datasource('db');
 
-		echo '<h2>First:</h2>';
+		$resource = $db->loadResource('houses');
 
-		foreach($teachers as $t)
-		{
-			echo $t->name.'<br/>';
-		}
-
-		echo '<h2>Second:</h2>';
-		foreach($teachers as $e)
-		{
-			echo $e->name.'<br/>';
-		}
-
-		exit;
-	}
-
-	public function action_stmt()
-	{
-		$db = \Kacela::instance()->get_datasource('db');
-
-		$stmt = $db->query($db->load_resource('wizards'), 'SELECT * FROM houses');
-
-		for($i=0;$i<6;$i++)
-		{
-			echo "<h3>Iteration $i:</h3>";
-			while($row = $stmt->fetchObject())
-			{
-				echo $row->name.'<br/>';
-			}
-
-			$stmt->execute();
-		}
-
-		exit;
+		exit(\Debug::vars($resource));
 	}
 }

@@ -23,10 +23,10 @@ class Controller_Crud extends Controller_Site
 	public function action_form()
 	{
 		$this->title = "Basic CRUD Form Example";
-		
+
 		$house = \Kacela::find('house', $this->request->param('id'));
 
-		$form = $house->get_form()
+		$form = $house->get_form(array('name'))
 			->add('save', 'submit');
 
 		$this->template->content = View::factory('crud/form')
@@ -39,8 +39,7 @@ class Controller_Crud extends Controller_Site
 
 		if(!$house->save($form))
 		{
-			$form->error(join('<br/>', array_flip($teacher->errors)));
-			return;
+			exit(print_r($house->errors, true));
 		}
 
 		$this->request->redirect('/crud');
