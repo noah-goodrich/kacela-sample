@@ -20,11 +20,11 @@ class Controller_Belongsto extends Controller_Site
 			->set('courses', $courses);
 	}
 
-	public function action_form($id = null)
+	public function action_form()
 	{
 		$this->title = 'Belongs To Form Example';
 
-		$course = kacela::find('course', $id);
+		$course = kacela::find('course', $this->request->param('id'));
 
 		$form = $course->get_form()
 			->add('save', 'submit');
@@ -45,9 +45,9 @@ class Controller_Belongsto extends Controller_Site
 		$this->request->redirect('/belongsto');
 	}
 
-	public function action_delete($id)
+	public function action_delete()
 	{
-		$course = kacela::find('course', $id);
+		$course = kacela::find('course', $this->request->param('id'));
 
 		$course->delete();
 

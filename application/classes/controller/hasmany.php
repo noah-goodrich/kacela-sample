@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 7/12/11
  * @brief
- * 
+ *
  */
 
 defined('SYSPATH') OR die('No direct access allowed.');
@@ -11,9 +11,11 @@ defined('SYSPATH') OR die('No direct access allowed.');
 class Controller_Hasmany extends Controller_Site
 {
 
-	public function action_index($id = null)
+	public function action_index()
 	{
 		$this->title = 'Has Many Example';
+
+		$id = $this->request->param('id');
 
 		if (is_null($id)) {
 			$teachers = kacela::find_all('teacher');
@@ -42,12 +44,14 @@ class Controller_Hasmany extends Controller_Site
 		}
 	}
 
-	public function action_remove($course_id)
+	public function action_remove()
 	{
-		$course = kacela::find('course', $course_id);
+		$course = Kacela::find('course', $this->request->param('id'));
+
+		$wizard = $course->wizard_id;
 
 		$course->delete();
 
-		$this->action_index($course->wizard_id);
+		$this->request->redirect('/hasmany/index/'.$wizard);
 	}
 }
