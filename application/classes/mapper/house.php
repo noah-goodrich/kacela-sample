@@ -8,6 +8,6 @@
 
 class Mapper_House extends Mapper
 {
-
+	protected $_cache = true;
 
 }

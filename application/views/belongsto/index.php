@@ -26,7 +26,7 @@
 			<span><a href="/belongsto/form/<?= $course->id ?>">Edit</a></span>
 			<span><a href="/belongsto/delete/<?= $course->id ?>">Delete</a></span>
 		</td>
-	<tr/>
+	</tr>
 <? endforeach ?>
 	</tbody>
 </table>

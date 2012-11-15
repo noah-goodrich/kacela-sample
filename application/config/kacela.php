@@ -9,6 +9,7 @@
 
 return array
 (
+	'cache' => 'kacela',
 	'datasources' => array
 	(
 		'db' => array

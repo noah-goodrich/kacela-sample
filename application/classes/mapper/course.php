@@ -8,5 +8,5 @@
 
 class Mapper_Course extends Mapper
 {
-
+	protected $_cache = true;
 }
