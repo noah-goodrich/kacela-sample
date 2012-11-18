@@ -1,19 +1,17 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Model;
-
-class Teacher extends Wizard
+class Model_Teacher extends Model_Wizard
 {
 
-	public function get_form($name = null)
+	public function get_form(array $fields = array())
 	{
-		$form = parent::get_form($name)
+		$form = parent::get_form($fields)
 			->set_all(array(
 				'role' => array
 				(

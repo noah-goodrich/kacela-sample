@@ -1,14 +1,13 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Mapper;
-
-class Wizard extends Mapper {
+class Mapper_Wizard extends Kacela_Mapper
+{
 
 	protected $_dependents = array
 	(
@@ -27,7 +26,7 @@ class Wizard extends Mapper {
 			'resource' => 'addresses'
 		)
 	);
-	
+
 	protected function _load(\stdClass $data)
 	{
 		$class = get_class($this);
@@ -47,7 +46,7 @@ class Wizard extends Mapper {
 			$model = explode("\\", $class);
 			$model = end($model);
 		}
-		
+
 		$model = '\\App\\Model\\'.$model;
 
 		return new $model($data);

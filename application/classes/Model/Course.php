@@ -1,22 +1,20 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Model;
-
-class Course extends Model
+class Model_Course extends Kacela_Model
 {
 
-	public function get_form($name = null)
+	public function get_form(array $fields = array())
 	{
-		$form = parent::get_form($name);
+		$form = parent::get_form($fields);
 
 		$options = \Formo::select_list(\kacela::find_all('teacher')->as_array('full_name', 'id'));
-		
+
 		$form->wizard_id->set
 		(
 			array
