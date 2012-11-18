@@ -33,7 +33,7 @@ class Mapper_Wizard extends Kacela_Mapper
 
 		$role = isset($data->role) ? $data->role : '';
 
-		if($role == 'student' AND $class != 'App\Mapper\Student')
+		if($role == 'student' AND $class != 'Mapper_Student')
 		{
 			// Because students load from their mapper that allows them to inherit
 			// from the wizards resource
@@ -43,12 +43,12 @@ class Mapper_Wizard extends Kacela_Mapper
 		if(!empty($data->role)) {
 			$model = ucfirst($data->role);
 		} else {
-			$model = explode("\\", $class);
+			$model = explode("_", $class);
 			$model = end($model);
 		}
 
-		$model = '\\App\\Model\\'.$model;
+		$model = 'Model_'.$model;
 
-		return new $model($data);
+		return new $model(Kacela::instance(), $this, $data);
 	}
 }
