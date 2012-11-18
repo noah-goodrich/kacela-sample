@@ -1,14 +1,12 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Model;
-
-class Wizard extends Model
+class Model_Wizard extends Kacela_Model
 {
 	protected function _get_full_name()
 	{
@@ -22,9 +20,9 @@ class Wizard extends Model
 		$this->lname = trim(substr($value, strpos($value, ' ')));
 	}
 
-	public function get_form($name = null)
+	public function get_form(array $fields = array())
 	{
-		$form = parent::get_form($name)
+		$form = parent::get_form($fields)
 			->remove(array('address_id', 'id', 'fname', 'lname'))
 			->add('full_name', array('value' => $this->full_name, 'required' => true, 'label' => 'full name'));
 

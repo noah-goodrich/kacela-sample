@@ -6,16 +6,14 @@
  *
 */
 
-namespace App\Model;
-
-class Student extends Wizard
+class Model_Student extends Model_Wizard
 {
 
-	public function get_form($name = null)
+	public function get_form(array $fields = array())
 	{
 		$houses = \kacela::find_all('house');
 
-		$form = parent::get_form($name)
+		$form = parent::get_form($fields)
 			->set_all(array(
 				'house_id' => array
 				(

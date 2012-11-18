@@ -1,19 +1,18 @@
 <?php
-/** 
+/**
  * @author noah
  * @date 4/23/11
  * @brief
- * 
+ *
 */
 
-namespace App\Model;
 
-class House extends Model
+class Model_House extends Kacela_Model
 {
 
-	public function get_form($name = null)
+	public function get_form(array $fields = array())
 	{
-		$form = parent::get_form($name);
+		$form = parent::get_form($fields);
 
 		$form->remove(array('id'));
 

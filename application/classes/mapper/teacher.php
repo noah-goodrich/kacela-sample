@@ -5,9 +5,7 @@
  *
 */
 
-namespace App\Mapper;
-
-class Teacher extends Wizard
+class Mapper_Teacher extends Mapper_Wizard
 {
 
 	protected $_resourceName = 'wizards';
