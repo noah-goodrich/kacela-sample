@@ -6,7 +6,7 @@
  *
 */
 
-class Model_Wizard extends Kacela_Model
+class Model_Wizard extends Model
 {
 	protected function _get_full_name()
 	{

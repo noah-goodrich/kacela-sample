@@ -9,6 +9,7 @@
 
 return array
 (
+	'cache' => 'kacela',
 	'datasources' => array
 	(
 		'db' => array
@@ -18,7 +19,14 @@ return array
 			'host' => '127.0.0.1',
 			'user' => 'kacela',
 			'password' => 'kacela'
+		),
+		'employees' => array
+		(
+			'schema' => 'employees',
+			'host' => 'localhost',
+			'user' => 'gacela',
+			'passwword' => 'gacela',
+			'type' => 'mysql'
 		)
-	),
-	'cache' => false
+	)
 );

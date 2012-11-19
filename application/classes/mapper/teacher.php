@@ -22,17 +22,18 @@ class Mapper_Teacher extends Mapper_Wizard
 		return parent::find_all($criteria);
 	}
 
-	public function findAllWithCourse(\Gacela\Criteria $criteria = null)
+	public function find_all_with_course(\Gacela\Criteria $criteria = null)
 	{
 		$query = $this->_source()->getQuery($criteria)
 					->from('wizards')
+					->left_join(array('a' => 'addresses'), 'wizards.address_id = a.id', array('*'))
 					->where('role = :role', array(':role' => 'teacher'))
 					->where('EXISTS (SELECT * FROM courses WHERE courses.wizard_id = wizards.id)');
 
-		return $this->_runQuery($query);
+		return $this->_collection($this->_runQuery($query));
 	}
 
-	public function findAllWithoutCourse(\Gacela\Criteria $criteria = null)
+	public function find_all_without_course(\Gacela\Criteria $criteria = null)
 	{
 		$existsQuery = $this->_source()->getQuery()
 							->from('courses')
@@ -41,9 +42,10 @@ class Mapper_Teacher extends Mapper_Wizard
 
 		$query = $this->_source()->getQuery($criteria)
 					->from('wizards')
+					->left_join(array('a' => 'addresses'), 'wizards.address_id = a.id', array('*'))
 					->where('role = :role', array(':role' =>  'teacher'))
 					->where("NOT EXISTS ({$existsQuery[0]})");
 
-		return $this->_runQuery($query);
+		return $this->_collection($this->_runQuery($query));
 	}
 }

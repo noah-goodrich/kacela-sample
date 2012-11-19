@@ -6,26 +6,9 @@
  *
 */
 
-class Mapper_Wizard extends Kacela_Mapper
+class Mapper_Wizard extends Mapper
 {
-
-	protected $_dependents = array
-	(
-		'address' => array
-		(
-			'meta' => array
-			(
-				'keyTable' => 'wizards',
-				'refTable' => 'addresses',
-				'type' => 'belongsTo',
-				'keys' => array
-				(
-					'address_id' => 'id'
-				)
-			),
-			'resource' => 'addresses'
-		)
-	);
+	protected $_dependents = array('address');
 
 	protected function _load(\stdClass $data)
 	{
@@ -37,18 +20,15 @@ class Mapper_Wizard extends Kacela_Mapper
 		{
 			// Because students load from their mapper that allows them to inherit
 			// from the wizards resource
-			return \kacela::find('student', $this->_primaryKey($this->_resource->getPrimaryKey(), $data));
+			return Kacela::find('student', $this->_primaryKey($this->_resource->getPrimaryKey(), $data));
 		}
 
 		if(!empty($data->role)) {
-			$model = ucfirst($data->role);
+			$model = 'Model_'.ucfirst($data->role);
 		} else {
-			$model = explode("_", $class);
-			$model = end($model);
+			$model = str_replace('Mapper', 'Model', $class);
 		}
 
-		$model = 'Model_'.$model;
-
-		return new $model(Kacela::instance(), $this, $data);
+		return new $model($this->_kacela(), $this, $data);
 	}
 }
