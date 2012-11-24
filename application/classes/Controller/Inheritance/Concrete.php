@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 6/22/11
  * @brief
- * 
+ *
  */
 
 defined('SYSPATH') OR die('No direct access allowed.');
@@ -15,7 +15,7 @@ class Controller_Inheritance_Concrete extends Controller_Site
 		$this->title = 'Concrete Inheritance Example';
 
 		$students = Kacela::find_all('student');
-		
+
 		$this->template->content = View::factory('inheritance/concrete/index')
 										->set('students', $students);
 	}
@@ -27,11 +27,11 @@ class Controller_Inheritance_Concrete extends Controller_Site
 		$student = kacela::find('student', $this->request->param('id'));
 
 		$form = $student->get_form()
-			->add('save', 'submit');
+			->add('save', 'input|submit');
 
 		$this->template->content = View::factory('inheritance/concrete/form')
 			->set('form', $form);
-									
+
 		if(!$form->load()->validate())
 		{
 			return;
@@ -44,7 +44,7 @@ class Controller_Inheritance_Concrete extends Controller_Site
 			return;
 		}
 
-		$this->request->redirect('/inheritance_concrete');
+		static::redirect('/inheritance_concrete');
 	}
 
 	public function action_delete($id)
@@ -52,7 +52,7 @@ class Controller_Inheritance_Concrete extends Controller_Site
 		$student = kacela::find('student', $id);
 
 		$student->delete();
-		
-		$this->request->redirect('/inheritance_concrete');
+
+		static::redirect('/inheritance_concrete');
 	}
 }

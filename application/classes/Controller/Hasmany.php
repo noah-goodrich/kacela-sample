@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 7/12/11
  * @brief
- * 
+ *
  */
 
 defined('SYSPATH') OR die('No direct access allowed.');
@@ -11,9 +11,11 @@ defined('SYSPATH') OR die('No direct access allowed.');
 class Controller_Hasmany extends Controller_Site
 {
 
-	public function action_index($id = null)
+	public function action_index()
 	{
 		$this->title = 'Has Many Example';
+
+		$id = $this->request->param('id');
 
 		if (is_null($id)) {
 			$teachers = kacela::find_all('teacher');
@@ -25,10 +27,10 @@ class Controller_Hasmany extends Controller_Site
 		{
 			$teacher = kacela::find('teacher', $id);
 
-			$form = Formo::form('new_course')
-					->add('wizard_id', 'hidden', $teacher->id)
+			$form = Formo::form()
+					->add('wizard_id', 'input|hidden', $teacher->id)
 					->add('subject')
-					->add('Add', 'submit');
+					->add('Add', 'input|submit');
 
 			if ($form->load()->validate()) {
 				$course = kacela::find('course');

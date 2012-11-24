@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 6/22/11
  * @brief
- * 
+ *
  */
 
 defined('SYSPATH') OR die('No direct access allowed.');
@@ -26,7 +26,7 @@ class Controller_Dependents extends Controller_Site
 		$model = kacela::find('wizard', $this->request->param('id', null));
 
 		$form = $model->get_form()
-			->add('save', 'submit');
+			->add('save', 'input|submit');
 
 		$this->template->content = View::factory('dependents/form')->set('form', $form);
 
@@ -34,12 +34,12 @@ class Controller_Dependents extends Controller_Site
 		{
 			return;
 		}
-		
+
 		if(!$model->save($form))
 		{
 			return;
 		}
-		
+
 		$this->request->redirect('/dependents');
 	}
 

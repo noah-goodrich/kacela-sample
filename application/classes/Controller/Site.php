@@ -8,13 +8,14 @@
 
 defined('SYSPATH') OR die('No direct access allowed.');
 
-class Controller_Site extends Controller_Template {
+class Controller_Site extends Controller_Template
+{
 
 	public $title = null;
 
 	public function before()
 	{
-		\Kohana::$profiling = true;
+		\Kohana::$profiling = false;
 
 		parent::before();
 

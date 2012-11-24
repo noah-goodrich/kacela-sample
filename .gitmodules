@@ -16,3 +16,6 @@
 [submodule "modules/formo"]
 	path = modules/formo
 	url = git://github.com/noah-goodrich/kohana-formo.git
+[submodule "modules/assets"]
+	path = modules/assets
+	url = git://github.com/noah-goodrich/kohana-assets2.git

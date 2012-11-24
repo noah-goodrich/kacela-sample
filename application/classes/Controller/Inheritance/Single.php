@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author Noah Goodrich
  * @date 7/8/11
  * @brief
- * 
+ *
 */
 
 class Controller_Inheritance_Single extends Controller_Site
@@ -14,7 +14,7 @@ class Controller_Inheritance_Single extends Controller_Site
 		$this->title = 'Single Table Inheritance Example';
 
 		$teachers = \kacela::find_all('teacher');
-		
+
 		$this->template->content = View::factory('inheritance/single/index')
 				->set('teachers', $teachers);
 	}
@@ -26,7 +26,7 @@ class Controller_Inheritance_Single extends Controller_Site
 		$teacher = kacela::find('teacher', $this->request->param('id'));
 
 		$form = $teacher->get_form()
-			->add('save', 'submit');
+			->add('save', 'input|submit');
 
 		$this->template->content = View::factory('inheritance/single/form')
 										->set('form', $form);
@@ -42,7 +42,7 @@ class Controller_Inheritance_Single extends Controller_Site
 			return;
 		}
 
-		$this->request->redirect('/inheritance_single');
+		static::redirect('/inheritance_single');
 	}
 
 	public function action_delete($id)
@@ -51,6 +51,6 @@ class Controller_Inheritance_Single extends Controller_Site
 
 		$teacher->delete();
 
-		$this->request->redirect('/inheritance_single');
+		static::redirect('/inheritance_single');
 	}
 }

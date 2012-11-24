@@ -13,7 +13,13 @@ class Model_Course extends Kacela_Model
 	{
 		$form = parent::get_form($fields);
 
-		$options = \Formo::select_list(\kacela::find_all('teacher')->as_array('full_name', 'id'));
+		$teachers = Kacela::find_all('teacher');
+
+		$options = array();
+		foreach($teachers as $teach)
+		{
+			$options[$teach->id] = $teach->full_name;
+		}
 
 		$form->wizard_id->set
 		(
@@ -21,7 +27,7 @@ class Model_Course extends Kacela_Model
 			(
 				'driver'  => 'select',
 				'value'   => $this->wizard_id,
-				'options' => $options,
+				'opts' => $options,
 				'label'   => 'Teacher'
 			)
 		);

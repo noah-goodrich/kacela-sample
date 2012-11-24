@@ -34,24 +34,22 @@ class Controller_Associations extends Controller_Site
 	{
 		$this->title = 'Association Relationships Example';
 
-		$student = kacela::find('student', $this->request->param('id'));
+		$student = Kacela::find('student', $this->request->param('id'));
 
 		$ids = $student->courses->as_array('id');
 
 		$criteria = kacela::criteria()->not_in('id', $ids);
 
-		$new = kacela::find_all('course', $criteria);
+		$new = Kacela::find_all('course', $criteria);
 
 		$form = Formo::form()
-					->add('wizard_id', 'hidden', $student->id)
-					->add_group('course_id', 'select', Formo::select_list($new->as_array('subject', 'id')))
-					->add('Add', 'submit');
-
-		$form->view()->attr('action', '/associations/student/'.$this->request->param('id'));
+					->add('wizard_id', 'input|hidden', $student->id)
+					->add(array('alias' => 'course_id', 'driver' => 'select', 'opts' => Arr::select_options($new, 'id', 'subject'), 'label' => 'Course'))
+					->add('add', 'input|submit');
 
 		if($form->load()->validate())
 		{
-			$course = kacela::find('course', $form->course_id->val());
+			$course = Kacela::find('course', $form->course_id->val());
 
 			$student->add($course);
 		}
