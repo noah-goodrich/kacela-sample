@@ -97,10 +97,11 @@ Kohana::$config->attach(new Config_File);
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(
-	'kacela'        => MODPATH.'kacela',
-	'cache'         => MODPATH.'cache',
-	'formo'         => MODPATH.'formo',
-	'userguide'     => MODPATH.'userguide',
+	'kacela' 		=> MODPATH.'kacela',
+	'assets'		=> MODPATH.'assets',
+	'cache'		    => MODPATH.'cache',
+	'formo'			=> MODPATH.'formo',
+	'userguide'	=> MODPATH.'userguide',
 	));
 
 /**
