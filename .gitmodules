@@ -4,9 +4,6 @@
 [submodule "modules/cache"]
 	path = modules/cache
 	url = https://github.com/kohana/cache.git
-[submodule "modules/formo"]
-	path = modules/formo
-	url = git://github.com/bmidget/kohana-formo.git
 [submodule "modules/kacela"]
 	path = modules/kacela
 	url = git://github.com/noah-goodrich/kohana-kacela.git
@@ -16,3 +13,12 @@
 [submodule "modules/unittest"]
 	path = modules/unittest
 	url = git://github.com/kohana/unittest.git
+[submodule "modules/formo"]
+	path = modules/formo
+	url = git://github.com/noah-goodrich/kohana-formo.git
+[submodule "modules/assets"]
+	path = modules/assets
+	url = git://github.com/noah-goodrich/kohana-assets2.git
+[submodule "modules/kable"]
+	path = modules/kable
+	url = git://github.com/noah-goodrich/kohana-kable.git
