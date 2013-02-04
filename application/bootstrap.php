@@ -100,6 +100,7 @@ Kohana::modules(array(
 	'kacela'        => MODPATH.'kacela',
 	'cache'         => MODPATH.'cache',
 	'formo'         => MODPATH.'formo',
+	'cms'			=> MODPATH.'cms',
 	'unittest'		=> MODPATH.'unittest',
 	'userguide'     => MODPATH.'userguide',
 	));
