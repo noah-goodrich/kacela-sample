@@ -22,3 +22,6 @@
 [submodule "modules/kable"]
 	path = modules/kable
 	url = git://github.com/noah-goodrich/kohana-kable.git
+[submodule "modules/cms"]
+	path = modules/cms
+	url = git://github.com/noah-goodrich/kohana-cms.git
