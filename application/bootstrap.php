@@ -100,8 +100,11 @@ Kohana::modules(array(
 	'kacela'        => MODPATH.'kacela',
 	'cache'         => MODPATH.'cache',
 	'formo'         => MODPATH.'formo',
+	'cms'			=> MODPATH.'cms',
+	'unittest'		=> MODPATH.'unittest',
 	'userguide'     => MODPATH.'userguide',
 	));
+
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of

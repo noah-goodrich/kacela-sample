@@ -1,9 +1,9 @@
 <?php
-/** 
+/**
  * @author noahg
  * @date 7/12/11
  * @brief
- * 
+ *
  */
  defined('SYSPATH') OR die('No direct access allowed.');
  ?>
@@ -26,7 +26,7 @@
 			<span><a href="/belongsto/form/<?= $course->id ?>">Edit</a></span>
 			<span><a href="/belongsto/delete/<?= $course->id ?>">Delete</a></span>
 		</td>
-	<tr/>
+	</tr>
 <? endforeach ?>
 	</tbody>
 </table>

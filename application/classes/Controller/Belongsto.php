@@ -14,7 +14,7 @@ class Controller_Belongsto extends Controller_Site
 	{
 		$this->title = 'Belongs To Example';
 
-		$courses = kacela::find_all('course');
+		$courses = Kacela::find_all('course');
 
 		$this->template->content = View::factory('belongsto/index')
 			->set('courses', $courses);

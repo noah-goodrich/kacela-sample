@@ -6,7 +6,7 @@
  *
 */
 
-class Model_Wizard extends Kacela_Model
+class Model_Wizard extends Model
 {
 	protected function _get_full_name()
 	{
@@ -24,7 +24,7 @@ class Model_Wizard extends Kacela_Model
 	{
 		$form = parent::get_form($fields)
 			->remove(array('address_id', 'id', 'fname', 'lname'))
-			->add(array('alias' => 'full_name', 'value' => $this->full_name, 'required' => true, 'label' => 'full name'));
+			->add('full_name', array('value' => $this->full_name, 'required' => true, 'label' => 'full name'));
 
 		return $form;
 	}

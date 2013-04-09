@@ -14,11 +14,11 @@ class Model_Student extends Model_Wizard
 		$houses = \kacela::find_all('house');
 
 		$form = parent::get_form($fields)
-			->set(array(
+			->set_all(array(
 				'house_id' => array
 				(
 					'driver'   => 'select',
-					'opts'  => Arr::select_options($houses, 'id', 'name'),
+					'options'  => \Formo::select_list($houses->as_array('name', 'id')),
 					'value'    => $this->house_id,
 					'required' => true,
 				),
