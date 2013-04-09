@@ -26,8 +26,8 @@ class Controller_Crud extends Controller_Site
 
 		$house = \Kacela::find('house', $this->request->param('id'));
 
-		$form = $house->get_form()
-			->add('save', 'input|submit');
+		$form = $house->get_form(array('name'))
+			->add('save', 'submit');
 
 		$this->template->content = View::factory('crud/form')
 										->set('form', $form);
@@ -39,11 +39,10 @@ class Controller_Crud extends Controller_Site
 
 		if(!$house->save($form))
 		{
-			$form->error(join('<br/>', array_flip($teacher->errors)));
-			return;
+			exit(print_r($house->errors, true));
 		}
 
-		static::redirect('/crud');
+		$this->request->redirect('/crud');
 	}
 
 	public function action_delete()
@@ -52,6 +51,6 @@ class Controller_Crud extends Controller_Site
 
 		$house->delete();
 
-		static::redirect('/crud');
+		$this->request->redirect('/crud');
 	}
 }

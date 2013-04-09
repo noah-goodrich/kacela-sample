@@ -44,12 +44,14 @@ class Controller_Hasmany extends Controller_Site
 		}
 	}
 
-	public function action_remove($course_id)
+	public function action_remove()
 	{
-		$course = kacela::find('course', $course_id);
+		$course = Kacela::find('course', $this->request->param('id'));
+
+		$wizard = $course->wizard_id;
 
 		$course->delete();
 
-		$this->action_index($course->wizard_id);
+		$this->request->redirect('/hasmany/index/'.$wizard);
 	}
 }

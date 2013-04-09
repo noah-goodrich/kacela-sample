@@ -13,11 +13,11 @@ class Controller_Debug extends Controller_Site
 	{
 		$this->title = 'Debugging Information Example';
 
-		$house_mapper = \Gacela::instance()->loadMapper('house');
+		$house_mapper = Kacela::load('house');
 
 		$house_mapper->find_all();
 
-		$student_mapper = \Gacela::instance()->loadMapper('student');
+		$student_mapper = Kacela::load('student');
 
 		$this->template->content = View::factory('debug')
 										->set('house_mapper', $house_mapper)

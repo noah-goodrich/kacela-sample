@@ -12,7 +12,7 @@ class Model_Teacher extends Model_Wizard
 	public function get_form(array $fields = array())
 	{
 		$form = parent::get_form($fields)
-			->set(array(
+			->set_all(array(
 				'role' => array
 				(
 					'driver' => 'hidden',

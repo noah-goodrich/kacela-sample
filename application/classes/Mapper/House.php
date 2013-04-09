@@ -6,8 +6,8 @@
  *
 */
 
-class Mapper_House extends Kacela_Mapper
+class Mapper_House extends Mapper
 {
-
+	protected $_cache = true;
 
 }

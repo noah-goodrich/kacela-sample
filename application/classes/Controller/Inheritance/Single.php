@@ -45,9 +45,9 @@ class Controller_Inheritance_Single extends Controller_Site
 		static::redirect('/inheritance_single');
 	}
 
-	public function action_delete($id)
+	public function action_delete()
 	{
-		$teacher = kacela::find('teacher', $id);
+		$teacher = kacela::find('teacher', $this->request->param('id'));
 
 		$teacher->delete();
 

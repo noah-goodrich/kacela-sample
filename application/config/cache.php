@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 return array
 (
-	'memcache' => array
+	'kacela' => array
 	(
 		'driver'             => 'memcache',
 		'default_expire'     => 3600,
@@ -10,7 +10,7 @@ return array
 		(
 			array
 			(
-				'host'             => 'localhost',  // Memcache Server
+				'host'             => '127.0.0.1',  // Memcache Server
 				'port'             => 11211,        // Memcache port number
 				'persistent'       => FALSE,        // Persistent connection
 				'weight'           => 1,
